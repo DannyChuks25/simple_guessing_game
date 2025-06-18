@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+
+    <form id="game-form">
+        <h1>Guess the Number</h1>
+        <h3 id="feedback"></h3>
+
+        <input id="input-number" type="number" placeholder="Enter a number (50-70)" required>
+        <div class="submit-ctn">
+            <input id="submit" type="submit" value="Submit Guess">
+        </div>
+        <br><br>
+        <div class="span">
+            <span id="score-display">Score: 25</span> | <span id="high-score-display">Highest Score: 0</span>
+        </div>
+    </form>
+
+    <div class="btn_ctn">
+        <button id="replay" style="display: none;"><strong>Replay</strong></button>
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
