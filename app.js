@@ -17,21 +17,23 @@
 
     let guess = parseInt(input.value);
     attempts++;
-    //score -= 5;
-
-    if (isNaN(guess)) {
-      feedback.textContent = "Please enter a valid number.";
-      score -= 5;
-    }
-    else if (guess < 0) {
+    
+    if (guess < 0) {
       feedback.textContent = "Your number cannot be less than 0.";
-      score -= 5;
-    }
-    else if (guess < 50 || guess > 70) {
-      feedback.textContent = "Your number must be between 50 and 70.";
+      feedback.style.color = "red";
       score -= 5;
     }
     
+    else if (guess < 64 && guess > 50) {
+      feedback.textContent = "Incorrect! Too low. Try again.";
+      feedback.style.color = "red";
+      score -= 5;
+    }
+    else if (guess > 64 && guess < 70) {
+      feedback.textContent = "Incorrect! Too high. Try again.";
+      feedback.style.color = "red";
+      score -= 5;
+    }
     else if (guess === hidden) {
       feedback.textContent = "Correct! You won with a score of " + score + ".";
       feedback.style.color = "green";
@@ -43,10 +45,11 @@
       submit.disabled = true;
     }
     else {
-      feedback.textContent = "Incorrect! Try again.";
+      feedback.textContent = "Your number must be between 50 and 70.";
       feedback.style.color = "red";
       score -= 5;
     }
+    
     scoreDisplay.textContent = "Score: " + score;
 
     if (attempts >= maxAttempts && guess !== hidden) {
